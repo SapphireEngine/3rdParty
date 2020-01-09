@@ -1,0 +1,3 @@
+[submodule "vectormath"]
+	path = vectormath
+	url = https://github.com/glampert/vectormath
