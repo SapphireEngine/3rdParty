@@ -10,8 +10,20 @@
 #ifndef VECTORMATH_COMMON_HPP
 #define VECTORMATH_COMMON_HPP
 
-#define IMEMORY_FROM_HEADER
-#include "../../../OS/Interfaces/IMemory.h"
+#if __cplusplus >= 201103
+#define DEFINE_ALIGNED(def, a) alignas(a) def
+#else
+#if defined(_WIN32)
+#define DEFINE_ALIGNED(def, a) __declspec(align(a)) def
+#elif defined(__OSX__)
+#define DEFINE_ALIGNED(def, a) def __attribute__((aligned(a)))
+#else
+//If we haven't specified the platform here, we fallback on the C++11 and C11 keyword for aligning
+//Best case -> No platform specific align defined -> use this one that does the same thing
+//Worst case -> No platform specific align defined -> this one also doesn't work and fails to compile -> add a platform specific one :)
+#define DEFINE_ALIGNED(def, a) alignas(a) def
+#endif
+#endif
 
 namespace Vectormath
 {
@@ -96,32 +108,6 @@ inline Matrix4 makeShadowMatrix(const Vector4 & plane, const Vector4 & light)
 #else
 #include <immintrin.h>
 #endif
-
-#include "../../../OS/Core/Compiler.h"
-
-/*
-* Copyright (c) 2018-2020 The Forge Interactive Inc.
-*
-* This file is part of The-Forge
-* (see https://github.com/ConfettiFX/The-Forge).
-*
-* Licensed to the Apache Software Foundation (ASF) under one
-* or more contributor license agreements.  See the NOTICE file
-* distributed with this work for additional information
-* regarding copyright ownership.  The ASF licenses this file
-* to you under the Apache License, Version 2.0 (the
-* "License"); you may not use this file except in compliance
-* with the License.  You may obtain a copy of the License at
-*
-*   http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing,
-* software distributed under the License is distributed on an
-* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-* KIND, either express or implied.  See the License for the
-* specific language governing permissions and limitations
-* under the License.
-*/
 
 //****************************************************************************
 // List of added functionalities:
