@@ -39,7 +39,7 @@ int symlink(const char *target, const char *linkpath); // needed on Linux
 #include "zip.h"
 
 // CONFFX_BEGIN - Custom Allocator
-#include "../../../OS/Interfaces/IMemory.h"
+#include "EASTL/IMemory.h"
 // CONFFX_END
 
 #ifndef MAX_PATH
