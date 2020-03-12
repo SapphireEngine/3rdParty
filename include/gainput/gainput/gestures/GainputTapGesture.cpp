@@ -1,10 +1,10 @@
 
-#include "../../../include/gainput/gainput.h"
-#include "../../../include/gainput/gestures/GainputTapGesture.h"
+#include "gainput/gainput/gainput.h"
+#include "gainput/gainput/gestures/GainputTapGesture.h"
 
 #ifdef GAINPUT_ENABLE_TAP_GESTURE
-#include "../../../include/gainput/GainputInputDeltaState.h"
-#include "../../../include/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputInputDeltaState.h"
+#include "gainput/gainput/GainputHelpers.h"
 
 namespace gainput
 {

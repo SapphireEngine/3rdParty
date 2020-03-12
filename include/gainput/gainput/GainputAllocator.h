@@ -3,7 +3,7 @@
 #define GAINPUTALLOCATOR_H_
 
 #define IMEMORY_FROM_HEADER
-#include "../../../../../../OS/Interfaces/IMemory.h"
+#include "EASTL/IMemory.h"
 
 namespace gainput
 {

@@ -2,7 +2,7 @@
 #ifndef GAINPUT_LOG_H_
 #define GAINPUT_LOG_H_
 
-#include "../../include/gainput/gainput.h"
+#include "gainput/gainput/gainput.h"
 
 #if defined(GAINPUT_PLATFORM_LINUX)
 

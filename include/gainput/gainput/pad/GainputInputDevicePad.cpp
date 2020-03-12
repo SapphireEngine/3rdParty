@@ -1,11 +1,11 @@
 
-#include "../../../include/gainput/gainput.h"
-#include "../../../include/gainput/GainputDebugRenderer.h"
+#include "gainput/gainput/gainput.h"
+#include "gainput/gainput/GainputDebugRenderer.h"
 
 #include "GainputInputDevicePadImpl.h"
-#include "../../../include/gainput/GainputInputDeltaState.h"
-#include "../../../include/gainput/GainputHelpers.h"
-#include "../../../include/gainput/GainputLog.h"
+#include "gainput/gainput/GainputInputDeltaState.h"
+#include "gainput/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputLog.h"
 
 #if defined(GAINPUT_PLATFORM_LINUX)
 	#include "GainputInputDevicePadLinux.h"

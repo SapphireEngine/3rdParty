@@ -3,8 +3,8 @@
 #define GAINPUTINPUTDEVICEMOUSEWINRAW_H_
 
 #include "GainputInputDeviceMouseImpl.h"
-#include "../../../include/gainput/GainputHelpers.h"
-#include "../../../include/gainput/GainputLog.h"
+#include "gainput/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputLog.h"
 
 #include "../GainputWindows.h"
 

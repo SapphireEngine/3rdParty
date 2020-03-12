@@ -1,5 +1,5 @@
 
-#include "../../../include/gainput/gainput.h"
+#include "gainput/gainput/gainput.h"
 
 #ifdef GAINPUT_ENABLE_RECORDER
 

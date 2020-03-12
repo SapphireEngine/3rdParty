@@ -1,11 +1,11 @@
 
-#include "../../../include/gainput/gainput.h"
+#include "gainput/gainput/gainput.h"
 
 #ifdef GAINPUT_ENABLE_RECORDER
 
-#include "../../../include/gainput/GainputInputDeltaState.h"
-#include "../../../include/gainput/GainputHelpers.h"
-#include "../../../include/gainput/GainputLog.h"
+#include "gainput/gainput/GainputInputDeltaState.h"
+#include "gainput/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputLog.h"
 
 
 namespace gainput

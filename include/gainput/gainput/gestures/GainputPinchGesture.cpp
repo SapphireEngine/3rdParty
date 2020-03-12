@@ -1,10 +1,10 @@
 
-#include "../../../include/gainput/gainput.h"
-#include "../../../include/gainput/gestures/GainputPinchGesture.h"
+#include "gainput/gainput/gainput.h"
+#include "gainput/gainput/gestures/GainputPinchGesture.h"
 
 #ifdef GAINPUT_ENABLE_PINCH_GESTURE
-#include "../../../include/gainput/GainputInputDeltaState.h"
-#include "../../../include/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputInputDeltaState.h"
+#include "gainput/gainput/GainputHelpers.h"
 #include <math.h>
 
 namespace gainput

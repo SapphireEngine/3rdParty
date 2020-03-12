@@ -5,7 +5,7 @@
 #include "../GainputWindows.h"
 
 #include "GainputInputDeviceKeyboardImpl.h"
-#include "../../../include/gainput/GainputHelpers.h"
+#include "gainput/gainput/GainputHelpers.h"
 
 namespace gainput
 {

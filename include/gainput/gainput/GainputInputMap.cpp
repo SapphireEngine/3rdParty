@@ -1,5 +1,5 @@
 
-#include "../../include/gainput/gainput.h"
+#include "gainput/gainput/gainput.h"
 #include "dev/GainputDev.h"
 
 #include <stdlib.h>
