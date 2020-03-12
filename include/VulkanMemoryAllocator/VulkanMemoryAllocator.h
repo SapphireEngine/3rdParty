@@ -24,7 +24,7 @@
 //======================================================
 //Confetti Includes
 //======================================================
-#include "../../../OS/Interfaces/IFileSystem.h"
+//#include "../../../OS/Interfaces/IFileSystem.h"
 
 //======================================================
 
@@ -6581,7 +6581,7 @@ private:
     bool m_UseMutex;
     VmaRecordFlags m_Flags;
     
-    FileStream* m_FileStream;
+    se::FileStream* m_FileStream;
 
     VMA_MUTEX m_FileMutex;
     int64_t m_Freq;
@@ -6598,8 +6598,7 @@ private:
 		int resultLength = vsnprintf(buffer, bufferLength, fmt, args);
 		if (resultLength < 0 || (size_t)resultLength >= bufferLength)
 		{
-			LOGF(LogLevel::eWARNING, "VmaRecorder: log truncated. Requested a write of %i but the buffer size is %lu.", 
-				resultLength, bufferLength);
+			LOGF(se::LogLevel::eWARNING, "VmaRecorder: log truncated. Requested a write of %i but the buffer size is %lu.", resultLength, bufferLength);
 		}
 		else 
 		{
@@ -13609,8 +13608,8 @@ VkResult VmaRecorder::Init(const VmaRecordSettings& settings, bool useMutex)
     QueryPerformanceCounter((LARGE_INTEGER*)&m_StartCounter);
 
     // Open file for writing
-	PathHandle filePath = fsCreatePath(fsGetSystemFileSystem(), settings.pFilePath);
-	m_FileStream = fsOpenFile(filePath, FM_WRITE_BINARY);
+	se::PathHandle filePath = se::fsCreatePath(se::fsGetSystemFileSystem(), settings.pFilePath);
+	m_FileStream = se::fsOpenFile(filePath, se::FM_WRITE_BINARY);
 
 	if (m_FileStream == NULL)
 	{
