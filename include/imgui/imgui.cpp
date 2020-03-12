@@ -841,8 +841,8 @@ CODE
 #include <stdint.h>     // intptr_t
 #endif
 
-#include "../../../OS/Interfaces/IFileSystem.h"
-#include "../../../OS/Interfaces/IMemory.h"
+#include "Platform/FileSystem/FileSystem.h"
+#include "EASTL/IMemory.h"
 
 #define IMGUI_DEBUG_NAV_SCORING     0
 #define IMGUI_DEBUG_NAV_RECTS       0
@@ -9038,7 +9038,7 @@ void ImGui::ShowMetricsWindow(bool* p_open)
 // Include imgui_user.inl at the end of imgui.cpp to access private data/functions that aren't exposed.
 // Prefer just including imgui_internal.h from your code rather than using this define. If a declaration is missing from imgui_internal.h add it or request it on the github.
 #ifdef IMGUI_INCLUDE_IMGUI_USER_INL
-#include "../../../../Middleware_3/UI/imgui_user.cpp"
+#include "UI/imgui_user.cpp"
 #endif
 
 //-----------------------------------------------------------------------------

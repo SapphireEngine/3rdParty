@@ -26,7 +26,7 @@ Index of this file:
 //#define IMGUI_DEFINE_MATH_OPERATORS
 //#endif
 #include "imgui_internal.h"
-#include "../../../OS/Interfaces/IFileSystem.h"
+#include "Platform/FileSystem/FileSystem.h"
 
 #include <stdio.h>      // vsnprintf, sscanf, printf
 #if !defined(alloca)
@@ -42,7 +42,7 @@ Index of this file:
 #endif
 #endif
 
-#include "../../../OS/Interfaces/IMemory.h"
+#include "EASTL/IMemory.h"
 
 // Visual Studio warnings
 #ifdef _MSC_VER
