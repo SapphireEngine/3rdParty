@@ -162,7 +162,7 @@ namespace eastl
 				{
 					pLink = mpNext;
 					
-					mpNext = reinterpret_cast<Link*>(reinterpret_cast<char8_t*>(mpNext) + n);
+					mpNext = reinterpret_cast<Link*>(reinterpret_cast<char*>(mpNext) + n);
 
 					#if EASTL_FIXED_SIZE_TRACKING_ENABLED
 						if(++mnCurrentSize > mnPeakSize)
@@ -346,7 +346,7 @@ namespace eastl
 				if (mpNext != mpCapacity)
 				{
 					p = mpNext;
-					mpNext = reinterpret_cast<Link*>(reinterpret_cast<char8_t*>(mpNext) + mnNodeSize);
+					mpNext = reinterpret_cast<Link*>(reinterpret_cast<char*>(mpNext) + mnNodeSize);
 				}
 				else
 					p = mOverflowAllocator.allocate(mnNodeSize);

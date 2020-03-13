@@ -166,7 +166,7 @@ EA_RESTORE_ALL_VC_WARNINGS()
 		namespace StdC
 		{
 			// Provided by the EAStdC package or by the user.
-			EASTL_EASTDC_API int Vsnprintf(char8_t*  EA_RESTRICT pDestination, size_t n, const char8_t*  EA_RESTRICT pFormat, va_list arguments);
+			EASTL_EASTDC_API int Vsnprintf(char*  EA_RESTRICT pDestination, size_t n, const char*  EA_RESTRICT pFormat, va_list arguments);
 			EASTL_EASTDC_API int Vsnprintf(char16_t* EA_RESTRICT pDestination, size_t n, const char16_t* EA_RESTRICT pFormat, va_list arguments);
 			EASTL_EASTDC_API int Vsnprintf(char32_t* EA_RESTRICT pDestination, size_t n, const char32_t* EA_RESTRICT pFormat, va_list arguments);
 			#if defined(EA_WCHAR_UNIQUE) && EA_WCHAR_UNIQUE
@@ -177,15 +177,7 @@ EA_RESTORE_ALL_VC_WARNINGS()
 
 	namespace eastl
 	{
-	    //inline int Vsnprintf(char* EA_RESTRICT pDestination,
-	    //                     size_t n,
-	    //                     const char* EA_RESTRICT pFormat,
-	    //                     va_list arguments)
-	    //{
-		   // return EA::StdC::Vsnprintf((char8_t*)pDestination, n, (char8_t*)pFormat, arguments);
-	    //}
-
-		inline int Vsnprintf(char8_t* EA_RESTRICT pDestination, size_t n, const char8_t* EA_RESTRICT pFormat, va_list arguments)
+		inline int Vsnprintf(char* EA_RESTRICT pDestination, size_t n, const char* EA_RESTRICT pFormat, va_list arguments)
 			{ return EA::StdC::Vsnprintf(pDestination, n, pFormat, arguments); }
 
 		inline int Vsnprintf(char16_t* EA_RESTRICT pDestination, size_t n, const char16_t* EA_RESTRICT pFormat, va_list arguments)
@@ -201,7 +193,7 @@ EA_RESTORE_ALL_VC_WARNINGS()
 	}
 #else
 	// User-provided functions.
-	extern int Vsnprintf8 (char8_t*  pDestination, size_t n, const char8_t*  pFormat, va_list arguments);
+	extern int Vsnprintf8 (char*  pDestination, size_t n, const char*  pFormat, va_list arguments);
 	extern int Vsnprintf16(char16_t* pDestination, size_t n, const char16_t* pFormat, va_list arguments);
 	extern int Vsnprintf32(char32_t* pDestination, size_t n, const char32_t* pFormat, va_list arguments);
 	#if defined(EA_WCHAR_UNIQUE) && EA_WCHAR_UNIQUE
@@ -210,7 +202,7 @@ EA_RESTORE_ALL_VC_WARNINGS()
 
 	namespace eastl
 	{
-		inline int Vsnprintf(char8_t* pDestination, size_t n, const char8_t* pFormat, va_list arguments)
+		inline int Vsnprintf(char* pDestination, size_t n, const char* pFormat, va_list arguments)
 			{ return Vsnprintf8(pDestination, n, pFormat, arguments); }
 
 		inline int Vsnprintf(char16_t* pDestination, size_t n, const char16_t* pFormat, va_list arguments)
@@ -298,7 +290,7 @@ namespace eastl
 		struct CtorSprintf{};
 
 		// CtorConvert exists so that we can have a constructor that implements string encoding
-		// conversion, such as between UCS2 char16_t and UTF8 char8_t.
+		// conversion, such as between UCS2 char16_t and UTF8 char.
 		struct CtorConvert{};
 
 	protected:
@@ -1649,7 +1641,7 @@ namespace eastl
 		// to making the user of this function handle exceptions that are easily forgotten.
 
 		const size_t         kBufferSize = 512;
-		value_type           selfBuffer[kBufferSize];   // This assumes that value_type is one of char8_t, char16_t, char32_t, or wchar_t. Or more importantly, a type with a trivial constructor and destructor.
+		value_type           selfBuffer[kBufferSize];   // This assumes that value_type is one of char, char16_t, char32_t, or wchar_t. Or more importantly, a type with a trivial constructor and destructor.
 		value_type* const    selfBufferEnd = selfBuffer + kBufferSize;
 		const OtherCharType* pOtherEnd = pOther + n;
 
@@ -3854,12 +3846,12 @@ namespace eastl
 	typedef basic_string<wchar_t> wstring;
 
 	/// string8 / string16 / string32
-	typedef basic_string<char8_t>  string8;
+	typedef basic_string<char>  string8;
 	typedef basic_string<char16_t> string16;
 	typedef basic_string<char32_t> string32;
 
 	// C++11 string types
-	typedef basic_string<char8_t>  u8string;    // Actually not a C++11 type, but added for consistency.
+	typedef basic_string<char>  u8string;    // Actually not a C++11 type, but added for consistency.
 	typedef basic_string<char16_t> u16string;
 	typedef basic_string<char32_t> u32string;
 

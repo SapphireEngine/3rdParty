@@ -491,7 +491,7 @@ namespace eastl
 	typedef basic_string_view<wchar_t> wstring_view;
 
 	// C++17 string types
-	typedef basic_string_view<char8_t> u8string_view;  // Actually not a C++17 type, but added for consistency.
+	typedef basic_string_view<char> u8string_view;  // Actually not a C++17 type, but added for consistency.
 	typedef basic_string_view<char16_t> u16string_view;
 	typedef basic_string_view<char32_t> u32string_view;
 

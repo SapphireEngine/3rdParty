@@ -12,7 +12,7 @@
 namespace EA {
 namespace StdC {
 
-	// EASTDC_API size_t    UTF8CharSize(const char8_t* p);
+	// EASTDC_API size_t    UTF8CharSize(const char* p);
 	EASTDC_API size_t UTF8CharSize(char16_t c)
 	{
 		if(c < 0x00000080)
@@ -36,34 +36,34 @@ namespace StdC {
 	}
 	// EASTDC_API size_t    UTF8CharSize(char32_t c);
 
-	EASTDC_API char8_t* UTF8WriteChar(char8_t* p, char16_t c)
+	EASTDC_API char* UTF8WriteChar(char* p, char16_t c)
 	{
 		if(c < 0x80)
 		{
-			*p++ = (char8_t)(uint8_t)c;
+			*p++ = (char)(uint8_t)c;
 		}
 		else if(c < 0x0800)
 		{
-			*p++ = (char8_t)(uint8_t)((c >> 6) | 0xC0);
-			*p++ = (char8_t)(uint8_t)((c & 0x3F) | 0x80);
+			*p++ = (char)(uint8_t)((c >> 6) | 0xC0);
+			*p++ = (char)(uint8_t)((c & 0x3F) | 0x80);
 		}
 		else // if(c < 0x00010000)
 		{
-			*p++ = (char8_t)(uint8_t)((c >> 12) | 0xE0);
-			*p++ = (char8_t)(uint8_t)(((c >> 6) & 0x3F) | 0x80);
-			*p++ = (char8_t)(uint8_t)((c & 0x3F) | 0x80);
+			*p++ = (char)(uint8_t)((c >> 12) | 0xE0);
+			*p++ = (char)(uint8_t)(((c >> 6) & 0x3F) | 0x80);
+			*p++ = (char)(uint8_t)((c & 0x3F) | 0x80);
 		}
 		//else
 		//{
-		//    *p++ = (char8_t)(uint8_t)((c >> 18) | 0xF0);
-		//    *p++ = (char8_t)(uint8_t)(((c >> 12) & 0x3F) | 0x80);
-		//    *p++ = (char8_t)(uint8_t)(((c >> 6) & 0x3F) | 0x80);
-		//    *p++ = (char8_t)(uint8_t)((c & 0x3F) | 0x80);
+		//    *p++ = (char)(uint8_t)((c >> 18) | 0xF0);
+		//    *p++ = (char)(uint8_t)(((c >> 12) & 0x3F) | 0x80);
+		//    *p++ = (char)(uint8_t)(((c >> 6) & 0x3F) | 0x80);
+		//    *p++ = (char)(uint8_t)((c & 0x3F) | 0x80);
 		//}
 
 		return p;
 	}
-	// EASTDC_API char8_t*  UTF8WriteChar(char8_t* p, char32_t c);
+	// EASTDC_API char*  UTF8WriteChar(char* p, char32_t c);
 
 }} // namespace EA::StdC
 

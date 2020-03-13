@@ -1108,9 +1108,9 @@ namespace eastl
 	//      special hash customized for such strings that's better than what we provide.
 	///////////////////////////////////////////////////////////////////////////
 
-	template <> struct hash<char8_t*>
+	template <> struct hash<char*>
 	{
-		size_t operator()(const char8_t* p) const
+		size_t operator()(const char* p) const
 		{
 			uint32_t c, result = 2166136261U;   // FNV1 hash. Perhaps the best string hash. Intentionally uint32_t instead of size_t, so the behavior is the same regardless of size.
 			while((c = (uint8_t)*p++) != 0)     // Using '!=' disables compiler warnings.
@@ -1119,9 +1119,9 @@ namespace eastl
 		}
 	};
 
-	template <> struct hash<const char8_t*>
+	template <> struct hash<const char*>
 	{
-		size_t operator()(const char8_t* p) const
+		size_t operator()(const char* p) const
 		{
 			uint32_t c, result = 2166136261U;   // Intentionally uint32_t instead of size_t, so the behavior is the same regardless of size.
 			while((c = (uint8_t)*p++) != 0)     // cast to unsigned 8 bit.

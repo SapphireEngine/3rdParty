@@ -607,9 +607,6 @@
 
 
 // ------------------------------------------------------------------------
-// char8_t  -- Guaranteed to be equal to the compiler's char data type.
-//             Some compilers implement char8_t as unsigned, though char 
-//             is usually set to be signed.
 //
 // char16_t -- This is set to be an unsigned 16 bit value. If the compiler
 //             has wchar_t as an unsigned 16 bit value, then char16_t is 
@@ -637,7 +634,7 @@
 // in -std=c++0x and -std=gnu++0x modes, as char16_t and char32_t too.
 //
 // The EA_WCHAR_UNIQUE symbol is defined to 1 if wchar_t is distinct from
-// char8_t, char16_t, and char32_t, and defined to 0 if not. In some cases, 
+// char16_t, and char32_t, and defined to 0 if not. In some cases, 
 // if the compiler does not support char16_t/char32_t, one of these two types 
 // is typically a typedef or define of wchar_t. For compilers that support 
 // the C++11 unicode character types often overloads must be provided to 
@@ -697,19 +694,8 @@
 	#define EA_WCHAR_UNIQUE 0
 #endif
 
-// Feature check for native char8_t support. Currently only enabled
-// in Clang since r346892 when -std=c++2a is specified.  
-#if defined(__cpp_char8_t)
-	#define CHAR8_T_DEFINED
-#endif
-
 #ifndef CHAR8_T_DEFINED // If the user hasn't already defined these...
 	#define CHAR8_T_DEFINED
-	#if defined(EA_PLATFORM_APPLE)
-		#define char8_t char    // The Apple debugger is too stupid to realize char8_t is typedef'd to char, so we #define it.
-	#else
-		typedef char char8_t;
-	#endif
 	
 	#if EA_CHAR16_NATIVE
 		// In C++, char16_t and char32_t are already defined by the compiler.
@@ -755,14 +741,6 @@
 #define EA_LIMITS_MAX_S(T)     ((T)(((((T)1 << (EA_LIMITS_DIGITS(T) - 1)) - 1) << 1) + 1))
 #define EA_LIMITS_MAX_U(T)     ((T)~(T)0)
 #define EA_LIMITS_MAX(T)       ((EA_LIMITS_IS_SIGNED(T) ? EA_LIMITS_MAX_S(T) : EA_LIMITS_MAX_U(T)))
-
-#if !defined(CHAR8_MIN)
-	#define CHAR8_MIN EA_LIMITS_MIN(char8_t)
-#endif
-
-#if !defined(CHAR8_MAX)
-	#define CHAR8_MAX EA_LIMITS_MAX(char8_t)
-#endif
 
 #if !defined(CHAR16_MIN)
 	#define CHAR16_MIN EA_LIMITS_MIN(char16_t)

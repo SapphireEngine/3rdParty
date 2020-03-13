@@ -50,7 +50,7 @@ namespace eastl
 	/// of 30, the nodeCount value must be at least 31.
 	///
 	/// Template parameters:
-	///     T                      The type of object the string holds (char, wchar_t, char8_t, char16_t, char32_t).
+	///     T                      The type of object the string holds (char, wchar_t, char, char16_t, char32_t).
 	///     nodeCount              The max number of objects to contain.
 	///     bEnableOverflow        Whether or not we should use the overflow heap if our object pool is exhausted.
 	///     OverflowAllocator              Overflow allocator, which is only used if bEnableOverflow == true. Defaults to the global heap.
